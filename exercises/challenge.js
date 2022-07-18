@@ -1,5 +1,5 @@
 /*
-=============== JavaScript Logic Challenge I ==================
+=============== Double Base Palindrome Challenge ==================
 GOAL: Read each question and write code to complete each task
       given. Do not change starter code or function names.
 
