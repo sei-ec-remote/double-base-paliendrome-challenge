@@ -2,7 +2,7 @@
 =============== JavaScript Logic Challenge I ==================
 GOAL: Read each question and write code to complete each task
       given. Do not change starter code or function names.
-      
+
 TEST: To test run the commands `npm run test` in your terminal
       at the root of this directory.(double-base-palindrome-challenge)
       Don't worry about capitalization.
@@ -18,10 +18,43 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
+const stringSolution = false
 
+const reverseNumberInBase = function (number, base) {
+	let reversed
+	for (reversed = 0; number > 0; number = (number / base) >>> 0) {
+		reversed = reversed * base + (number % base)
+	}
+
+	return reversed
 }
 
+const testWithNumber = function (number, base) {
+	return number === reverseNumberInBase(number, base)
+}
+
+const reverseString = function (string) {
+	return string.split('').reverse().join('')
+}
+
+const testWithString = function (number, base) {
+	const numberAsString = number.toString(base)
+	return numberAsString === reverseString(numberAsString)
+}
+
+// This function will be called with 3 arguments set to
+// 2, 10, and 1000000 respectively
+const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
+	const numberIsPalindrome = stringSolution ? testWithString : testWithNumber
+	let sum = 0
+	for (let i = 0; i < upperLimit; i++) {
+		if (numberIsPalindrome(i, base1) && numberIsPalindrome(i, base2)) {
+			sum += i
+		}
+	}
+
+	return sum
+}
 
 // DO NOT MODIFY
 module.exports = {
