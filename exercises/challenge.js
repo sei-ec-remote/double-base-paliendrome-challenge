@@ -36,7 +36,8 @@ const doubleBasePalindromeSum = function (base1, base2, upperBound) {
 
       let sum = 0;
       for (let n = 1; n <= upperBound; n++) {
-            if (checkPalindrome(n) && checkPalindrome(n.toString(2))) {
+            if (checkPalindrome(n.toString(base1))
+                  && checkPalindrome(n.toString(base2))) {
                   sum += n;
             }
       }
