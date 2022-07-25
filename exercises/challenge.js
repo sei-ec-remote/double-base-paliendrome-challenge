@@ -18,7 +18,20 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
+// const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
+
+// }
+
+//this works, this is your base 2 conversion
+
+const toBaseTwo = (num) => {
+      let newString = num.toString(2)
+      return newString
+}
+
+console.log(toBaseTwo(7))
+
+const doubleBasePalindromeSum = function (num) {
 
 }
 
