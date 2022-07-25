@@ -18,7 +18,7 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (upperLimit) {
+const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
 // what is a double base? there are two bases: 10 and 2
 // for base 10, we want to see if the number and the number reversed are the same
 // so there will need to be two checks here: one for base 10 and one for base 2
@@ -30,7 +30,7 @@ const doubleBasePalindromeSum = function (upperLimit) {
       // TODO: make palindrome test function here
       function palindrome(num) {
             // convert to string to test
-            num = num.toString();
+            //num = num.toString();
             // make reverse Num
             var reverseNum = num.split('').reverse().join(''); 
             // if true, return TRUE || if not, return FALSE
@@ -39,7 +39,7 @@ const doubleBasePalindromeSum = function (upperLimit) {
       for (let i=0; i<upperLimit; i++) {
       // 2: TEST FOR BASE 10 PALINDROME and BASE 2 PALINDROME
             // test for palindrome
-            if (palindrome(i) && palindrome(Math.abs(i).toString(2))) {
+            if (palindrome(Math.abs(i).toString(base1)) && palindrome(Math.abs(i).toString(base2))) {
                   // if succeed, pass to successArr
                   successArr.push(i)
             };
