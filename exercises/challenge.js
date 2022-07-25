@@ -18,8 +18,30 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
+const doubleBasePalindromeSum = function (base1, base2, upperBound) {
+      const checkPalindrome = (num) => {
+            // cast to a string, for safety
+            const toCheck = num.toString();
 
+            for (let i = 0; i < Math.floor(toCheck.length / 2); i++) {
+                  // fail if this position is not palindromic; flooring the division
+                  // ignores the middle digit for odd-length numbers, which happens
+                  // to be irrelevant for palindrome checking
+                  if (toCheck[i] !== toCheck[toCheck.length - i - 1]) { return false; }
+            }
+
+            // if we've made it here, all positions are palindromic => success!
+            return true;
+      }
+
+      let sum = 0;
+      for (let n = 1; n <= upperBound; n++) {
+            if (checkPalindrome(n) && checkPalindrome(n.toString(2))) {
+                  sum += n;
+            }
+      }
+
+      return sum;
 }
 
 
