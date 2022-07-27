@@ -20,16 +20,31 @@ This question is from - https://projecteuler.net/problem=36
 */
 const doubleBasePalindromeSum = function ( n, k,/* base1, base2, upperLimit */) {
       let sum = 0
+      let n = 10
+      let k = 2
       for(let i = 1; i < n; i++)
     {
         sum += isPalindrome(i, k)
     }
-    
-
+    let revered = sum.split('').reverse().join('')
+    if (revered === sum) {
+       return i
+} else {
+      return false  
 }
-let n = 10
-let k = 2
 
+// }
+// let str = integer_to_string(n, k);
+// let ch = str.split('');
+// .reverse();
+// let str1 = ch.join("");
+ 
+// if (str == str1)
+// {
+//     return i;
+// }
+// }
+// return 0;
 
 // DO NOT MODIFY
 module.exports = {
