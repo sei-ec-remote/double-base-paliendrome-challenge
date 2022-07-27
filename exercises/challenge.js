@@ -18,8 +18,23 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
-
+const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
+      //first - I want to be able to convert a nmber from decimal to binary:
+      // To do that, we run:
+      let sumOfAll = null
+      for (let i = 0; i < upperLimit; i++) {
+            const checkPalindrome = (number, base) => {
+                  const arr = (number).toString(base).split('')
+                  const arrRev = (number).toString(base).split('').reverse()
+                  return JSON.stringify(arr) === JSON.stringify(arrRev)
+            }
+            
+            if (checkPalindrome(i, base1) && checkPalindrome(i, base2) ) {
+                  sumOfAll += i
+            }
+      }
+      return sumOfAll
+      
 }
 
 
