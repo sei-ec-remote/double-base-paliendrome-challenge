@@ -22,18 +22,25 @@ const doubleBasePalindromeSum = function ( n, k,/* base1, base2, upperLimit */) 
       let sum = 0
       let n = 10
       let k = 2
-      for(let i = 1; i < n; i++)
-    {
-        sum += isPalindrome(i, k)
-    }
-    let revered = sum.split('').reverse().join('')
-    if (revered === sum) {
-       return i
-} else {
-      return false  
+      let str = (n, k)
+      for(let i = 0; i < str.length; i+=1) {
+    
+       if(str[i] !== str[str.length - 1 - i]) {
+            return false
+       } else {
+            return true
+       }
+    
+//     let revered = sum.split('').reverse().join('')
+//     if (revered === sum) {
+//        return i
+// }  {
+        
 }
-
-// }
+const reverseString = (str) => {
+      return str.split('').reverse().join('');
+  }
+ 
 // let str = integer_to_string(n, k);
 // let ch = str.split('');
 // .reverse();
@@ -45,6 +52,10 @@ const doubleBasePalindromeSum = function ( n, k,/* base1, base2, upperLimit */) 
 // }
 // }
 // return 0;
+//if(is[is.length - 1] != '0'
+
+
+
 
 // DO NOT MODIFY
 module.exports = {
