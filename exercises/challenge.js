@@ -23,7 +23,7 @@ const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
       let sum = 0;
 
       for (let i = 0; i < upperLimit; i++) {
-            if (isPalindrome((i).toString(base1)) && isPalindrome((i).toString(base2))) {
+            if (isPalindrome(i.toString(base1)) && isPalindrome(i.toString(base2))) {
                   sum += i;
             }
       }
