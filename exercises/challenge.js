@@ -19,8 +19,21 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 This question is from - https://projecteuler.net/problem=36
 */
 const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
-
+      // palindrome - reads the same forward && backward
+      // need to covert base numbers in base 10 to base 2 , STRING
+      const string1 = (585).toString(base2)
+      // Declare here
+      const reverseString = function (thisString) {
+            // set to empty string
+            if (thisString === "")
+            return ""
+            else
+      }
 }
+      
+
+
+
 
 
 // DO NOT MODIFY
