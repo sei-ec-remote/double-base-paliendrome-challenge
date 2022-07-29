@@ -21,12 +21,15 @@ This question is from - https://projecteuler.net/problem=36
 
 const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
   let final = 0;
+  //array of numbers from 1 to limit
   const testRange = [...Array(upperLimit + 1).keys()].slice(1);
+  //find numbers from array that satisfy
   testRange.forEach((i) => {
     if (
       i.toString(base1) === i.toString(base1).split("").reverse().join("") &&
       i.toString(base2) === i.toString(base2).split("").reverse().join("")
     ) {
+      //add qualifying numbers to sum
       final += i;
     }
   });
