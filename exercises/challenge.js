@@ -32,7 +32,6 @@ const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
       final += i
     }
   })
-
   return final
 }
 // DO NOT MODIFY
