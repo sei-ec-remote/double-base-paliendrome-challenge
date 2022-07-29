@@ -20,27 +20,22 @@ This question is from - https://projecteuler.net/problem=36
 */
 
 const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
-  const fullArr = [...Array(upperLimit).keys()];
-  fullArr.shift();
-
-  let doublePal = fullArr.filter((i) => {
+  const fullArr = [...Array(upperLimit+1).keys()].slice(1)
+  let final = 0
+  fullArr.forEach((i) => {
     let revString = [
       i.toString(base1).split("").reverse().join(""),
       i.toString(base2).split("").reverse().join(""),
-    ];
+    ]
     if (
       i.toString(base1) === revString[0] && i.toString(base2) === revString[1]) {
-      return i;
+      final += i
     }
-  });
+  })
 
-  let final = doublePal.reduce((tot, curr) => {
-    return tot + curr;
-  });
-
-  return final;
-};
+  return final
+}
 // DO NOT MODIFY
 module.exports = {
   doubleBasePalindromeSum,
-};
+}
