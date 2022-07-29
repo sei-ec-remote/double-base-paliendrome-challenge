@@ -18,12 +18,38 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
+const doubleBasePalindromeSum = function ( base1, base2, upperLimit ) {
 
+      //change number to binary
+      let palindrome= (base1 >>> 0).toString(2)
+      //remove the leading zeros (do I need to do this?)
+      const noLeadingZeros = parseInt(palindrome, 10)
+      // reverse the string
+      let reverseString = noLeadingZeros.toString().split("").reverse().join("")
+      // remove leading zeros (if I need to do this I should be able to only do it once)
+      const noLeadingZerosReverse = parseInt(reverseString, 10)
+
+      const limit = Math.floor(noLeadingZerosReverse.length/2)
+
+      for(let i=0; i<limit; i++){
+            if (noLeadingZerosReverse[i] !== noLeadingZerosReverse[noLeadingZerosReverse.length -i -1]){
+                  console.log(false)
+                  return false
+            }else{
+                  console.log(true)
+                  return true 
+            }
+      }
+      console.log(noLeadingZerosReverse)
+      return noLeadingZerosReverse
 }
 
+      doubleBasePalindromeSum(585)
 
-// DO NOT MODIFY
-module.exports = {
-	doubleBasePalindromeSum,
-}
+      // DO NOT MODIFY
+      module.exports = {
+            doubleBasePalindromeSum,
+      }
+
+
+
