@@ -55,8 +55,7 @@ const reverseString = (str) => {
 //if(is[is.length - 1] != '0'
 
 
-
-
+}
 // DO NOT MODIFY
 module.exports = {
 	doubleBasePalindromeSum,
