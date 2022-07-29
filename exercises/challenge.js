@@ -20,21 +20,19 @@ This question is from - https://projecteuler.net/problem=36
 */
 
 const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
-  let final = 0
-  const testRange = [...Array(upperLimit+1).keys()].slice(1)
+  let final = 0;
+  const testRange = [...Array(upperLimit + 1).keys()].slice(1);
   testRange.forEach((i) => {
-    let revString = [
-      i.toString(base1).split("").reverse().join(""),
-      i.toString(base2).split("").reverse().join(""),
-    ]
     if (
-      i.toString(base1) === revString[0] && i.toString(base2) === revString[1]) {
-      final += i
+      i.toString(base1) === i.toString(base1).split("").reverse().join("") &&
+      i.toString(base2) === i.toString(base2).split("").reverse().join("")
+    ) {
+      final += i;
     }
-  })
-  return final
-}
+  });
+  return final;
+};
 // DO NOT MODIFY
 module.exports = {
   doubleBasePalindromeSum,
-}
+};
