@@ -34,10 +34,12 @@ function checkPalindrome(string) {
 const doubleBasePalindromeSum = function (base1, base2, upperLimit/* base1, base2, upperLimit */) {
       //parseInt(string, radix)\//hard coded
       let palindrome = []
+      console.log(base1,base2,upperLimit)
       for (let i = 0;i<upperLimit;i++){
-            let binaryI = i.toString(2)
+            let binaryI = i.toString(base1)
+            let base1I = i.toString(base2)
             
-            if(checkPalindrome(i.toString()) && checkPalindrome(binaryI.toString())){
+            if(checkPalindrome(base1I.toString()) && checkPalindrome(binaryI.toString())){
                   palindrome.push(i)
                   //console.log(i, binaryI)
             }
