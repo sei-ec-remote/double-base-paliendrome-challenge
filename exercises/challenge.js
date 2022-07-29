@@ -22,17 +22,19 @@ This question is from - https://projecteuler.net/problem=36
 const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
   const fullArr = [...Array(upperLimit).keys()];
   fullArr.shift();
-  
-  let oneArray = fullArr.filter((i) => {
-    let revString = i.toString(base1).split("").reverse().join("");
-    let revStringTwo = i.toString(base2).split("").reverse().join("");
-    if (i.toString(base1) === revString && i.toString(base2) === revStringTwo) {
+
+  let doublePal = fullArr.filter((i) => {
+    let revString = [
+      i.toString(base1).split("").reverse().join(""),
+      i.toString(base2).split("").reverse().join(""),
+    ];
+    if (
+      i.toString(base1) === revString[0] && i.toString(base2) === revString[1]) {
       return i;
     }
   });
-  
-  //add everything up
-  let final = oneArray.reduce((tot, curr) => {
+
+  let final = doublePal.reduce((tot, curr) => {
     return tot + curr;
   });
 
