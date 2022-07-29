@@ -19,54 +19,53 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 This question is from - https://projecteuler.net/problem=36
 */
 
+const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
+  const fullArr = [...Array(upperLimit).keys()];
+  fullArr.shift();
+  //console.log(fullArr)
 
-//this works, this is your base 2 conversion
+  let oneArray = fullArr.map((i) => {
+    let newString = i.toString(base1);
+    let revString = newString.split("").reverse().join("");
+    newString = parseInt(newString);
+    revString = parseInt(revString);
+    if (newString === revString) {
+      return i;
+    }
+  });
+  //this array has palindromes in binary
+  oneArray = oneArray.filter((i) => {
+    if (i !== undefined) {
+      return i;
+    }
+  });
+  console.log(oneArray);
 
-const base1 = (num) => {
-      let newString = num.toString(2)
-      let revString = newString.split("").reverse().join("")
-      newString = parseInt(newString)
-      revString = parseInt(revString)
-      console.log(newString)
-      console.log(revString)
-      if (revString === newString){
-            
-            return true
-      } else {
-            return false
-      }
-}
+  //you're almost there. next do the same thing with base 10 through the array you just got
+  let twoArray = oneArray.map((i) => {
+    let newString = i.toString(base2);
+    let revString = newString.split("").reverse().join("");
+    newString = parseInt(newString);
+    revString = parseInt(revString);
+    if (newString === revString) {
+      return newString;
+    }
+  });
+  twoArray = twoArray.filter((i) => {
+    if (i !== undefined) {
+      return i;
+    }
+  });
 
-const base2 = (num) => {
-      let newString = num.toString(10)
-      let revString = newString.split("").reverse().join("")
-      newString = parseInt(newString)
-      revString = parseInt(revString)
-      if (revString === newString){
-            return true
-      } else {
-            return false
-      }
-}
+  let final = twoArray.reduce((tot, curr) => {
+    return tot + curr;
+  });
+  return final;
+};
 
-const doubleBasePalindromeSum = function ( /*upperLimit */) {
-      let finalSum = []
-      for (let i = 0; i < 20; i++){
-            if(base1(i) && base2(i)){
-                  finalSum.push(i)
-            }
-      }
-      console.log(finalSum)
-}
-
-doubleBasePalindromeSum()
-
-
-
-
-
+doubleBasePalindromeSum(2, 10, 50);
 
 // DO NOT MODIFY
 module.exports = {
-	doubleBasePalindromeSum,
-}
+  doubleBasePalindromeSum,
+};
