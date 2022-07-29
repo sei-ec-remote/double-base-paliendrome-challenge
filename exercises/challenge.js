@@ -27,7 +27,11 @@ const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
             // set to empty string
             if (thisString === "")
             return ""
-            else
+            // thisString
+            // return at index 0
+            else {
+                  return reverseString(this.String.substr(1)) + this.String.charAt(0)
+            }
       }
 }
       
