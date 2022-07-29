@@ -10,7 +10,7 @@ TEST: To test run the commands `npm run test` in your terminal
 
 /*
 Question 1
-The decimal number, 585 = 10010010012 (binary), is palindromic in both bases.
+The decimal number, 585 = 1001001001 (binary), is palindromic in both bases.
 
 Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
 
@@ -18,10 +18,43 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
 
+function checkPalindrome(string) {
+
+      const reverseString = string.split("").reverse().join("")
+  
+      if(string == reverseString) {
+          return true
+      }
+      else {
+          return false
+      }
+  }
+
+const doubleBasePalindromeSum = function (base1, base2, upperLimit/* base1, base2, upperLimit */) {
+      //parseInt(string, radix)\//hard coded
+      let palindrome = []
+      console.log(base1,base2,upperLimit)
+      for (let i = 0;i<upperLimit;i++){
+            let binaryI = i.toString(base1)
+            let base1I = i.toString(base2)
+            
+            if(checkPalindrome(base1I.toString()) && checkPalindrome(binaryI.toString())){
+                  palindrome.push(i)
+                  //console.log(i, binaryI)
+            }
+      }
+      return palindrome.reduce((pass,curr) =>{
+            return pass + curr
+      },0)
+      
+      
 }
 
+//pretty brute forced, also not sure if I was suposed to used upperlimit in base1 or base2 if that makes sense
+
+let final = doubleBasePalindromeSum()
+//console.log(final)
 
 // DO NOT MODIFY
 module.exports = {
