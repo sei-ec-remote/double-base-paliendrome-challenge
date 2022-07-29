@@ -30,6 +30,7 @@ const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
         // AND i as a binary number is equal to itself after being split, reversed, and rejoined
         // add i to sum and repeat
         // this way seems faster than setting up a function to do it, according to the tests
+        // check base 10 first because no reversed number with 0s at the end will be a palindrome
         if (i.toString(base2) === String(i).split('').reverse().join('') && binNum === binNum.split('').reverse().join('')) {
             // careful with this log with a high upper limit
             // console.log(`${i} is a palindrome, and so is its binary ${binNum}`)
