@@ -51,6 +51,8 @@ const doubleBasePalindromeSum = function (base1, base2, upperLimit/* base1, base
       
 }
 
+//pretty brute forced, also not sure if I was suposed to used upperlimit in base1 or base2 if that makes sense
+
 let final = doubleBasePalindromeSum()
 //console.log(final)
 
