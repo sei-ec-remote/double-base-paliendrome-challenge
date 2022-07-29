@@ -20,9 +20,9 @@ This question is from - https://projecteuler.net/problem=36
 */
 
 const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
-  const fullArr = [...Array(upperLimit+1).keys()].slice(1)
+  const testRange = [...Array(upperLimit+1).keys()].slice(1)
   let final = 0
-  fullArr.forEach((i) => {
+  testRange.forEach((i) => {
     let revString = [
       i.toString(base1).split("").reverse().join(""),
       i.toString(base2).split("").reverse().join(""),
