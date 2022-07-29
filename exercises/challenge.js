@@ -18,10 +18,30 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 This question is from - https://projecteuler.net/problem=36
 */
-const doubleBasePalindromeSum = function (/* base1, base2, upperLimit */) {
-
+const doubleBasePalindromeSum = function (base1, base2, upperLimit) {
+    // set sum variable to store addition operations
+    let sum = 0
+    // count up to the upper limit, using i as the number to check
+    for (let i = 1; i <= upperLimit; i++) {
+        // convert i to binary for comparison
+        let binNum = i.toString(base1)
+        // cast to string for more utility
+        // if the string i is equal to itself after being split, reversed, and rejoined
+        // AND i as a binary number is equal to itself after being split, reversed, and rejoined
+        // add i to sum and repeat
+        // this way seems faster than setting up a function to do it, according to the tests
+        // check base 10 first because no reversed number with 0s at the end will be a palindrome
+        if (i.toString(base2) === String(i).split('').reverse().join('') && binNum === binNum.split('').reverse().join('')) {
+            // careful with this log with a high upper limit
+            // console.log(`${i} is a palindrome, and so is its binary ${binNum}`)
+            sum += i
+        }
+    }
+    // console.log(sum)
+    return sum
 }
 
+doubleBasePalindromeSum(2, 10, 1000000)
 
 // DO NOT MODIFY
 module.exports = {
